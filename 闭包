@@ -1,0 +1,40 @@
+def count():
+    fs = []
+    for i in range(1, 4):
+        def f(m=i):
+            return m*m
+        fs.append(f)
+    return fs
+
+f1, f2, f3 = count()
+print f1（）, f2（）, f3（）\\这里加了括号是指调用了函数，单独的一个f1是一个变量名，指向该函数的地址
+
+输出：1 4 9
+
+def count():
+    fs = []
+    for i in range(1, 4):
+        def f():
+            return i*i
+        fs.append(f())
+    return fs
+
+f1, f2, f3 = count()
+print f1, f2, f3    
+
+输出：1 4 9
+
+def count():
+    fs = []
+    for i in range(1, 4):
+        def f():
+             return i*i
+        fs.append(f)
+    return fs
+
+f1, f2, f3 = count()
+
+
+输出：9 9 9
+
+summary：因此，返回函数不要引用任何循环变量，或者后续会发生变化的变量。
